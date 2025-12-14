@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocop-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocop-frontend
+  template:
+    metadata:
+      labels:
+        app: ocop-frontend
+    spec:
+      containers:
+      - name: ocop-frontend
+        image: ocop-frontend:1.0  
+        ports:
+          - containerPort: 80
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocop-frontend-service
+spec:
+  selector:
+    app: ocop-frontend
+  ports:
+    - protocol: TCP
+      port: 80        # ClusterIP port
+      targetPort: 80  # Pod port
+      nodePort: 32000 # Port truy cập ngoài cluster
+  type: NodePort

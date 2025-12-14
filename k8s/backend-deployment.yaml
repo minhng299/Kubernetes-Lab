@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ocop-backend
-        image: ocop-backend:1.0
+        image: ocop-backend:1.2
         envFrom:
           - configMapRef:
               name: backend-config
