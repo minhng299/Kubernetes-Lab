@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  PORT: "3000"
+  DB_HOST: "mysql-service"
+  DB_USER: "root"
+  DB_PASSWORD: "abcd1234"
+  DB_NAME: "ocopdb"
+  JWT_SECRET: "secretkey"
