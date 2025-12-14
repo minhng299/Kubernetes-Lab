@@ -14,10 +14,9 @@ spec:
     spec:
       containers:
       - name: ocop-frontend
-        image: ocop-frontend:latest 
+        image: ocop-frontend:1.0
         ports:
           - containerPort: 80
-        imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
